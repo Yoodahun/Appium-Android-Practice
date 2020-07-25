@@ -13,7 +13,7 @@ public class Base {
     public static AndroidDriver<AndroidElement> initializeCapabilities() {
         // write your code here
 
-        File file = new File("/Users/yoodahun/Documents/Github/Java/Appium -Mobile Automation Testing from Scratch/Library/ApiDemos-debug.apk");
+        File file = new File("/Users/yoodahun/Documents/Github/Java/Appium -Mobile Automation Testing from Scratch/Library/General-Store.apk");
 
         AndroidDriver<AndroidElement> driver = null;
 
@@ -21,6 +21,7 @@ public class Base {
 
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"PracticeEmul");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 10);
         capabilities.setCapability(MobileCapabilityType.APP,
                 file.getAbsolutePath());
 
