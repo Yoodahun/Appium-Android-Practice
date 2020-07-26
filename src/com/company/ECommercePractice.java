@@ -38,6 +38,7 @@ public class ECommercePractice extends Base {
 
             if (text.equals("Jordan 6 Rings")) {
                 driver.findElementsById("com.androidsample.generalstore:id/productAddCart").get(i).click();
+                System.out.println("Jordan 6 Rings add");
                 break;
             }
         }
