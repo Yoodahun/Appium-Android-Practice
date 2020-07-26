@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Base {
 
@@ -27,6 +28,7 @@ public class Base {
 
         try {
             driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+            driver.manage().timeouts().implicitlyWait(4000, TimeUnit.SECONDS);
         } catch (Exception e) {
 
         }
