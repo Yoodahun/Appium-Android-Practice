@@ -1,8 +1,13 @@
 package com.company;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -82,6 +87,21 @@ public class ECommercePractice extends Base {
 
         System.out.println(driver.findElementById("com.androidsample.generalstore:id/totalAmountLbl").getText().split(" ")[1]);
         System.out.println(priceSum);
+
+        System.out.println("5 --------------------------");
+
+        //5. Validating Mobile Gesture of App
+
+        driver.findElementByClassName("android.widget.CheckBox").click();
+        TouchAction touchAction = new TouchAction(driver);
+//        touchAction.tap(TapOptions.tapOptions().withElement(ElementOption.element( driver.findElementByClassName("android.widget.CheckBox")))).perform();
+
+        touchAction.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(driver.findElementById("com.androidsample.generalstore:id/termsButton")))
+                                                                .withDuration(Duration.ofSeconds(2))).release().perform();
+
+        driver.findElementById("android:id/button1").click();
+        driver.findElementById("com.androidsample.generalstore:id/btnProceed").click();
+        System.out.println("visit Website !");
 
 
     }
