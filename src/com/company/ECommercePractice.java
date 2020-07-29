@@ -9,6 +9,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class ECommercePractice extends Base {
@@ -102,6 +103,17 @@ public class ECommercePractice extends Base {
         driver.findElementById("android:id/button1").click();
         driver.findElementById("com.androidsample.generalstore:id/btnProceed").click();
         System.out.println("visit Website !");
+
+
+        System.out.println("Web View --------------------------");
+
+        Set<String> contexts = driver.getContextHandles();
+
+        for (String context : contexts) {
+            System.out.println(context);
+        }
+
+
 
 
     }
