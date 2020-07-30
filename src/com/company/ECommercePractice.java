@@ -3,9 +3,13 @@ package com.company;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 import java.util.List;
@@ -104,6 +108,7 @@ public class ECommercePractice extends Base {
         driver.findElementById("com.androidsample.generalstore:id/btnProceed").click();
         System.out.println("visit Website !");
 
+        Thread.sleep(7000);
 
         System.out.println("Web View --------------------------");
 
@@ -112,6 +117,16 @@ public class ECommercePractice extends Base {
         for (String context : contexts) {
             System.out.println(context);
         }
+        driver.context("WEBVIEW_com.androidsample.generalstore");
+
+        // 6. Verify if user can do operations on Web view and can navigate back to Native app if needed
+
+//        driver = BaseWebApp.initializeCapabilities();
+        driver.findElement(By.xpath("//input[@name=\"q\"]")).sendKeys("Hello World");
+        driver.findElement(By.xpath("//input[@name=\"q\"]")).sendKeys(Keys.ENTER);
+
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
 
 
 
